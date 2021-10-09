@@ -1,21 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import * as Font from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+// Stack
+import AlphaStack from './src/navigation/Alpha/AlphaStack';
+
+// Load font Async
+const getFonts = () => Font.loadAsync({
+    'poppins': require('./src/assets/Fonts/Poppins-Bold.ttf'),
+    'Circular': require('./src/assets/Fonts/Circular.ttf'),
+    'Proxima': require('./src/assets/Fonts/ProximaSoft-ExtraBold.ttf')
+});
+
+
+const App = () => {
+  const [loadFont, setLoadFont] = useState(false);
+
+  if(loadFont){
+      return (
+        <AlphaStack />
+       )
+  }else{
+      return (
+            <AppLoading 
+                startAsync={getFonts}
+                onFinish={ () => setLoadFont(true)}
+                onError={console.warn}
+            />
+        )
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default App ;
