@@ -11,7 +11,8 @@ import AlphaStack from './src/navigation/Alpha/AlphaStack';
 const getFonts = () => Font.loadAsync({
     'poppins': require('./src/assets/Fonts/Poppins-Bold.ttf'),
     'Circular': require('./src/assets/Fonts/Circular.ttf'),
-    'Proxima': require('./src/assets/Fonts/ProximaSoft-ExtraBold.ttf')
+    'Proxima': require('./src/assets/Fonts/ProximaSoft-ExtraBold.ttf'),
+    'SfPro':require('./src/assets/Fonts/SFProDisplay-Regular.ttf')
 });
 
 

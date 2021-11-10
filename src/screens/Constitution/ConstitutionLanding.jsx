@@ -1,24 +1,34 @@
 import React from 'react'
-import { View, TextInput, SafeAreaView, Dimensions, StyleSheet, Text } from 'react-native';
+import { View, TextInput, SafeAreaView, Dimensions, StyleSheet, Text,StatusBar,ScrollView } from 'react-native';
 import { scale , ScaledSheet } from 'react-native-size-matters';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import TopStack from '../../components/topStack';
+import Title from '../../components/constitution/Title';
 
 const ConstitutionLanding = ({ navigation }) => {
+    
     return (
-        <View style={{ flex: 1}}>
-             <View style={styles.topBar}>
-                <Icon name="ios-chevron-back" style={styles.topIcon}  onPress={ () => navigation.goBack()}  />
-                <Text style={styles.topText}>  FUTASU Constitution </Text> 
-             </View>
-        </View>
+        
+        <ScrollView style={{backgroundColor:'#fff',height:'100%'}}>
+            <TopStack title='FUTASU Constitution' />
+            <View style={{marginTop:20}}>
+                <Title Press={ () => navigation.navigate( 'Introduction')} title="INTRODUCTION" border={true} />
+                <Title Press={ () => navigation.navigate( 'Article I')} title="ARTICLE I" border={true}/>
+                <Title title="ARTICLE II" border={true}/>
+                <Title title="ARTICLE III" border={true}/>
+                <Title title="ARTICLE IV" border={true}/>
+                <Title title="ARTICLE VI" border={true}/>
+                <Title title="ARTICLE VII" border={true}/>
+                <Title title="ARTICLE VIII" border={true}/>
+                <Title title="ARTICLE IX" border={true}/>
+                <Title title="ARTICLE X" />
+            </View>
+            
+        </ScrollView>
     )
 }
 
 const styles = ScaledSheet.create({
-    topBar: { paddingTop: '50@s', backgroundColor: '#fff', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', paddingHorizontal: 15, elevation: 10, paddingVertical: '10@s', elevation: 10},
-    topIcon: { marginLeft: '5@s', color: '#3a3b3c', fontSize: '32@s'},
-    topText: {fontFamily: 'Proxima', fontSize: '22@s', color: '#3a3b3c', textAlign: 'center',   }
+    
 })
 
 export default ConstitutionLanding;
