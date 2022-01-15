@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, SafeAreaView, Image, Dimensions, TouchableOpacity, TextInput, TouchableWithoutFeedback, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+
 const Title=(props)=>{
     return(
         <TouchableOpacity  activeOpacity={1} onPress={props.Press}>
