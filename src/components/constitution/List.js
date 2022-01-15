@@ -25,7 +25,6 @@ const List = (props) => {
         props.style,
       ]}
     >
-      {/* <Text style={{fontSize:18,flex:1}}>●</Text> */}
       <Text style={{ fontSize: 18, flex: 1 }}>
         {props.listStyle ? props.listStyle : "●"}
       </Text>
