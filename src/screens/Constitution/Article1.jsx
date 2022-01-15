@@ -20,7 +20,7 @@ const renderData = (data) => {
 
 const renderSection = (textData) => {
     return (
-        <Section number={textData.number} title={textData.name}>
+        <Section number={textData.number} title={textData.name} key={textData.number}>
             {textData.text}
         </Section>
     );
@@ -29,16 +29,16 @@ const renderSection = (textData) => {
 const renderList = (list) => {
     return list.map((l, i) => {
         return (
-            <>
-                <List listStyle={i + 1}>{l.text}</List>
+            <View key={`${i}---`}>
+                <List listStyle={i + 1} key={`list ${i}key`}>{l.text}</List>
 
                 {l.isNested &&
-                    l.data.map((d) => (
-                        <List listStyle="*" style={{ width: "75%" }}>
+                    l.data.map((d, i) => (
+                        <List listStyle="*" style={{ width: "75%" }} key={`sublist ${i}key`}>
                             {d}
                         </List>
                     ))}
-            </>
+            </View>
         );
     });
 };

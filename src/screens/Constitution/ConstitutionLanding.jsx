@@ -24,20 +24,38 @@ const ConstitutionLanding = ({ }) => {
                     Press={() => navigation.navigate("Introduction")}
                     title="INTRODUCTION"
                     border={true}
+                    key={"intro"}
                 />
                 <Title
                     Press={() => navigation.navigate("Article I")}
                     title="ARTICLE I"
+                    key={"articlei"}
                     border={true}
                 />
-                <Title title="ARTICLE II" border={true} />
-                <Title title="ARTICLE III" border={true} />
-                <Title title="ARTICLE IV" border={true} />
-                <Title title="ARTICLE VI" border={true} />
-                <Title title="ARTICLE VII" border={true} />
-                <Title title="ARTICLE VIII" border={true} />
-                <Title title="ARTICLE IX" border={true} />
-                <Title title="ARTICLE X" />
+                <Title title="ARTICLE II" border={true}
+                    key={"articleii"}
+                />
+                <Title title="ARTICLE III" border={true}
+                    key={"articleiii"}
+                />
+                <Title title="ARTICLE IV" border={true}
+                    key={"articleiv"}
+                />
+                <Title title="ARTICLE VI" border={true}
+                    key={"articlevi"}
+                />
+                <Title title="ARTICLE VII" border={true}
+                    key={"articlevii"}
+                />
+                <Title title="ARTICLE VIII" border={true}
+                    key={"articleviii"}
+                />
+                <Title title="ARTICLE IX" border={true}
+                    key={"articleix"}
+                />
+                <Title title="ARTICLE X"
+                    key={"articlex"}
+                />
             </ScrollView>
         </View>
     );
