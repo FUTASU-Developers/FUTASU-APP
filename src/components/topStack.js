@@ -57,7 +57,9 @@ const TopStack = (props) => {
               name="ios-chevron-forward"
               onPress={() => navigation.navigate(props.next)}
             />
-          ) : null}
+          ) : (
+            <Icon size={35} color="#FFF" name="ios-chevron-forward" />
+          )}
         </View>
       </View>
     </View>
