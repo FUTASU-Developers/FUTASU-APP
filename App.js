@@ -4,8 +4,12 @@ import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
 
+
+
+
 // Stack
 import AlphaStack from './src/navigation/Alpha/AlphaStack';
+
 
 // Load font Async
 const getFonts = () => Font.loadAsync({
@@ -21,7 +25,7 @@ const App = () => {
 
   if(loadFont){
       return (
-        <AlphaStack />
+              <AlphaStack />
        )
   }else{
       return (
