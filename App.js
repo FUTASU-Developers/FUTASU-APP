@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 // Stack
 import AlphaStack from './src/navigation/Alpha/AlphaStack';
+import OnboardScreen from './src/components/Onboarding/OnboardScreen';
+import OnboardingStack from './src/navigation/Onboarding/OnboardingStack';
 
 // Load font Async
 const getFonts = () => Font.loadAsync({
@@ -20,7 +23,10 @@ const App = () => {
 
   if(loadFont){
       return (
-        <AlphaStack />
+        // <AlphaStack />
+        <NavigationContainer>
+            <OnboardingStack />
+        </NavigationContainer>
        )
   }else{
       return (
