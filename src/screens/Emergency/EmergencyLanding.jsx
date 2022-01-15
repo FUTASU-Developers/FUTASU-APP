@@ -13,6 +13,7 @@ import { scale, ScaledSheet } from "react-native-size-matters";
 import Icon from "react-native-vector-icons/Ionicons";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
 import TopStack from "../../components/topStack";
+import { Tile } from "../../components/Tile";
 
 const EmergencyLanding = ({ navigation }) => {
   return (
@@ -21,6 +22,15 @@ const EmergencyLanding = ({ navigation }) => {
         title="Emergency Details"
         navigate={() => navigation.goBack()}
       />
+
+      <View>
+        <View>
+          <Tile
+            title="Theft"
+            image={require("../../assets/Images/Theft.png")}
+          />
+        </View>
+      </View>
     </View>
   );
 };
