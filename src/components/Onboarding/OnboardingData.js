@@ -3,20 +3,20 @@ export const OnboardingData = [
     {
         id: '1',
         title: 'Transportation',
-        subject: 'Transportation subject description, a brief intro on futasu transportation feature, a feature that will help you move around the campus better with low cost and comfortability',
-        // image: require('../../assets/images/')
+        subject: 'Get to your classes, hostel with ease and cheaper means.. we provide you with a scalable architecture to order rides and get picked up from your location to you preferred destination.',
+        image: require('../../assets/Images/dd.png')
     },
     {
         id: '2',
         title: 'Constitution',
-        subject: 'Constitution subject description, a brief intro on futasu constitution feature, read the different constitutions articles to help you use your rights well and live just',
-        // image: require('../../assets/images/')
+        subject: 'Do you know the constitution of this great institution well enough?..Get acquainted  with different articles of different section of our institution constitution. Information is true power',
+        image: require('../../assets/Images/dd.png')
     },
     {
         id: '3',
         title: 'E-Library',
-        subject: 'E-Library subject description, a brief intro on futasu elibrary feature, ebooks are provided for you to help you enrich your GP and academic status',
-        // image: require('../../assets/images/')
+        subject: 'Our E-library holds a great variety of academic materials to help you become a first class student.. Search for your departmental courses and download them to your devices in an instant!!.',
+        image: require('../../assets/Images/dd.png')
     },
 
 ]

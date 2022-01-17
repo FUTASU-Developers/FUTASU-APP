@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react'
-import { SafeAreaView, FlatList, Dimensions, Text } from 'react-native';
+import { SafeAreaView, FlatList, Dimensions, Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { ScaledSheet } from 'react-native-size-matters';
+
 
 
 // get data
@@ -40,6 +42,10 @@ const OnboardScreen = () => {
         setCurrIndex(lastSlideIndex);
     }
 
+     const skipToSignUp = () => {
+        navigation.navigate('SignUp');
+    }
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -59,6 +65,29 @@ const OnboardScreen = () => {
                     skipSlide={skipSlide}
                 />}
             />
+
+            <View style={styles.indicatorLayout}>
+                {/* Indicators */}
+                <View style={{ flexDirection: 'row', justifyContent: 'center'}}>
+                { OnboardingData.map((_, index) => (
+                    <View key={index} style={[
+                        styles.indicator,
+                        currIndex == index && {
+                        backgroundColor: '#336699'
+                    }]} />
+                ))}
+                </View>
+
+            { currIndex === 2 
+                ?
+                   <TouchableOpacity onPress={skipToSignUp} style={styles.getStartedLay}>
+                        <Text style={styles.getStarted}>Get Started</Text>
+                        <MaterialCommunityIcons name="arrow-right" size={15} color="#36ac" />
+                   </TouchableOpacity>
+                :
+                    <MaterialCommunityIcons name="arrow-right" size={23} style={styles.indicatorIcon} onPress={nextSlide} />
+            }
+          </View>
             
         </SafeAreaView>
     )
@@ -68,6 +97,42 @@ export default OnboardScreen;
 
 const styles = ScaledSheet.create({
     container: {
-        flex: 1
-    }
+        flex: 1,
+        backgroundColor: '#fff'
+    },
+     indicator: {
+        height: 8, 
+        width: 20,
+        borderRadius: 5, 
+        backgroundColor: '#ddd',
+        marginHorizontal: 3,
+   },
+   indicatorLayout: {
+       flexDirection: 'row',
+       alignItems: 'center',
+       justifyContent: 'space-between',
+       paddingHorizontal: '10@vs',
+       flex: .1,
+   },
+      indicatorIcon: {
+        backgroundColor: '#98afcf',
+       color: '#fff',
+       paddingVertical: '8@vs',
+       borderRadius: '30@vs',
+       paddingHorizontal: '8@vs'  
+   },
+   getStarted: {
+      fontFamily: 'Circular',
+       fontSize: '12.5@vs',
+       paddingHorizontal: '5@vs' ,
+       color: '#36ac'
+   },
+   getStartedLay: {
+       borderWidth: 1,
+       borderColor: "#36ac",
+       paddingHorizontal: '10@vs',
+       paddingVertical: '6@vs',
+       borderRadius: 30,
+       flexDirection: 'row'
+   }
 });

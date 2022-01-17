@@ -23,8 +23,8 @@ const App = () => {
 
   if(loadFont){
       return (
-        // <AlphaStack />
         <NavigationContainer>
+            {/* <AlphaStack /> */}
             <OnboardingStack />
         </NavigationContainer>
        )

@@ -12,7 +12,7 @@ const Stack = createStackNavigator() ;
 
 const AlphaStack = ({ navigation }) => {
     return (
-        <NavigationContainer>
+        // <NavigationContainer>
             <Stack.Navigator  screenOptions={{ headerShown: false }} initialRouteName="Alpha" >
                 <Stack.Screen name="Alpha" component={Alpha} />  
                 <Stack.Screen name="ConstitutionStack" component={ConstitutionStack} />  
@@ -20,7 +20,7 @@ const AlphaStack = ({ navigation }) => {
                 <Stack.Screen name="EmergencyStack" component={EmergencyStack} />  
                 <Stack.Screen name="TransportationStack" component={TransportationStack} />  
             </Stack.Navigator>
-        </NavigationContainer>
+        // </NavigationContainer>
     )
  };
 
