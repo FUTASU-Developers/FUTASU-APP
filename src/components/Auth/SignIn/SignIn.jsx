@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Text, View, Dimensions, TouchableOpacity, ScrollView, TextInput, Modal } from 'react-native';
+import { Text, View, Dimensions, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import { ScaledSheet, verticalScale } from 'react-native-size-matters';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -10,7 +10,17 @@ const SignIn = () => {
     const navigation = useNavigation();
     const { width } = Dimensions.get('window');
     const [modal, setModal] = useState(false);
-    const [modalVasible, setModalVisible]
+
+    const [userData, setUserData] = useState({
+        username: '',
+        password: ''
+    });
+
+    const { username, password } = userData ;
+
+    const changeModal = () => {
+        setModal(!modal);
+    }
 
     // input ref
     const refInput1 = useRef();
@@ -22,7 +32,7 @@ const SignIn = () => {
 
             <View style={styles.welcLayout}>
                 <Text style={styles.welcText}>Welcome back!!</Text>
-                <Text style={styles.welcSubText}> Login into your account details to signin...</Text>
+                <Text style={styles.welcSubText}> Login into your account with your details....</Text>
             </View>
 
             {/* form */}
@@ -42,6 +52,7 @@ const SignIn = () => {
                             placeholder="Enter your username...."
                             style={[styles.nameInput,{ } ]}
                             returnKeyType={'next'}
+                            defaultValue={username}
                             onSubmitEditing={() => refInput1.current.focus()}
                         />
                     </View>
@@ -54,6 +65,7 @@ const SignIn = () => {
                             placeholder="Enter your password...."
                             style={[styles.nameInput,{ } ]}
                             returnKeyType={'done'}
+                            defaultValue={password}
                             secureTextEntry={true}
                         />
                     </View>
@@ -61,7 +73,7 @@ const SignIn = () => {
 
                 <TouchableOpacity
                     style={{alignItems: 'flex-start'}}
-                    onPress={() => setModalVisible(true)}>
+                    onPress={() => setModal(true)}>
 
                     <Text style={styles.forg}> Forgot password?</Text>
 
@@ -84,7 +96,7 @@ const SignIn = () => {
 
             {/* Forgot PWd Modal */}
 
-            <ForgotModal visibility={modal} />
+            <ForgotModal visibility={modal} changeModal={changeModal} />
 
         </View>
     )

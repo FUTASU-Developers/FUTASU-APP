@@ -11,7 +11,7 @@ const Slides = ({ item }) => {
     const { width } = Dimensions.get('window');
 
     const skipToSignUp = () => {
-        navigation.navigate('SignUp');
+        navigation.replace('SignUp');
     }
 
     return (
@@ -53,12 +53,12 @@ const styles = ScaledSheet.create({
         justifyContent: 'center'
     },
     onboardImageLay: {
-        flex: .7,
+        flex: .6,
         justifyContent: 'center',
         alignItems: 'center',
     },
    skipLayout: {
-       justifyContent: 'center',
+       flex: .1,
        alignItems: 'flex-end',
        paddingHorizontal: '10@vs',
    },

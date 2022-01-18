@@ -15,6 +15,18 @@ const SignUp = () => {
     const [eye, setEye] = useState(true);
     const [coey, setCoey] = useState(true);
 
+    const [userData, setUserData] = useState({
+        surname: '',
+        lastname: '',
+        username: '',
+        email: '',
+        phoneNumber: '',
+        password: '',
+        confirmPassword: ''
+    });
+
+    const { surname, lastname, username, email, phoneNumber, password, confirmPassword } = userData ;
+
     const moveToLogin = () => {
         navigation.navigate('SignIn');
     }
@@ -57,6 +69,8 @@ const SignUp = () => {
                             placeholder="Surname"
                             style={[styles.nameInput,{ width: width / 2.8} ]}
                             returnKeyType={'next'}
+                            // onChangeText={}
+                            defaultValue={surname}
                             onSubmitEditing={() => refInput1.current.focus()}
                         />
                     </View>
@@ -68,6 +82,7 @@ const SignUp = () => {
                             placeholder="Lastname"
                             style={[styles.nameInput,{ width: width / 2.8} ]}
                             returnKeyType={'next'}
+                            defaultValue={lastname}
                             onSubmitEditing={() => refInput2.current.focus()}
                         />
                     </View>
@@ -94,6 +109,7 @@ const SignUp = () => {
                         style={[styles.nameInput,{ width: width - 50 } ]}
                         keyboardType="email-address"
                         returnKeyType={'next'}
+                        defaultValue={email}  
                         onSubmitEditing={() => refInput4.current.focus()}
                     />
                 </View>
@@ -107,6 +123,7 @@ const SignUp = () => {
                         keyboardType="numeric"
                         style={[styles.nameInput,{ width: width - 50 } ]}
                         returnKeyType={'next'}
+                        defaultValue={phoneNumber}
                         onSubmitEditing={() => refInput5.current.focus()}
                     />
                 </View>
@@ -121,6 +138,7 @@ const SignUp = () => {
                         style={[styles.nameInput,{ width: width - 65 } ]}
                         returnKeyType={'next'}
                         secureTextEntry={eye}
+                        defaultValue={password}
                         onSubmitEditing={() => refInput6.current.focus()}
                     />
                 </View>
@@ -140,6 +158,7 @@ const SignUp = () => {
                      <TextInput
                         ref={refInput6}
                         placeholder="Confirm your password..."
+                        defaultValue={confirmPassword}
                         style={[styles.nameInput,{ width: width - 65 } ]}
                         secureTextEntry={coey}
                     />
