@@ -64,18 +64,20 @@ const styles = ScaledSheet.create({
    },
    skipText: {
        fontFamily: 'Proxima',
-       color: '#336699',
+       color: '#a2296e',
        fontSize: '15@vs'
    },
    subject: {
        fontFamily: 'Circular',
        fontSize: '13.5@vs',
-       paddingHorizontal: '5@vs'
+       paddingHorizontal: '5@vs',
+       color: '#a2296e'
    },
    title: {
        fontFamily: "Proxima",
        fontSize: '23@vs',
-       marginTop: '8@vs'
+       marginTop: '8@vs',
+       color: '#7d0552' 
    },
    onboardImage: {
        resizeMode: 'contain',

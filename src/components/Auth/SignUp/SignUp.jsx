@@ -9,7 +9,7 @@ const logo = require('../../../assets/Images/futasuLogo.png');
 
 
 const SignUp = () => {
-     const navigation = useNavigation();
+    const navigation = useNavigation();
     const { width } = Dimensions.get('window');
 
     const [eye, setEye] = useState(true);
@@ -144,9 +144,9 @@ const SignUp = () => {
                 </View>
 
                  { eye ? 
-                       <Icon name="ios-eye-off" style={{ marginRight: verticalScale(5), color: '#98afcf', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setEye(false)} />
+                       <Icon name="ios-eye-off" style={{ marginRight: verticalScale(5), color: '#7d0552', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setEye(false)} />
                         :
-                        <Icon name="ios-eye" style={{ marginRight: verticalScale(5), color: '#98afcf', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setEye(true)} />
+                        <Icon name="ios-eye" style={{ marginRight: verticalScale(5), color: '#7d0552', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setEye(true)} />
                 }
 
                 </View>
@@ -164,9 +164,9 @@ const SignUp = () => {
                     />
                 </View>
                 { coey ? 
-                       <Icon name="ios-eye-off" style={{ marginRight: verticalScale(5), color: '#98afcf', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setCoey(false)} />
+                       <Icon name="ios-eye-off" style={{ marginRight: verticalScale(5), color: '#7d0552', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setCoey(false)} />
                         :
-                        <Icon name="ios-eye" style={{ marginRight: verticalScale(5), color: '#98afcf', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setCoey(true)} />
+                        <Icon name="ios-eye" style={{ marginRight: verticalScale(5), color: '#7d0552', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setCoey(true)} />
                 }
                 </View>
 
@@ -200,13 +200,13 @@ const styles = ScaledSheet.create({
     regText: {
         fontFamily: 'Proxima',
         fontSize: '23@vs',
-        color: '#336699',
+        color: '#7d0552',
         textAlign: 'center'
     },
     regSubText: {
         fontFamily: 'Circular',
         fontSize: '13@vs',
-        color: '#98afcf',
+        color: '#a2296e',
         textAlign: 'center'
     },
     nameLayout: {
@@ -231,11 +231,11 @@ const styles = ScaledSheet.create({
     },  
     InputIcon: { 
        marginHorizontal: 5, 
-       color: '#98afcf', 
+       color: '#7d0552', 
        fontSize: '14@vs'
     },
     btn: {
-      backgroundColor: '#336699', 
+      backgroundColor: '#7d0552', 
       padding: 10, 
       borderRadius: 5, 
       marginBottom: '20@vs',
@@ -275,6 +275,6 @@ const styles = ScaledSheet.create({
    alr: {
         fontFamily: 'Circular',
         fontSize: '13@vs',
-        color: '#98afcf', 
+        color: '#7d0552', 
    }
 })

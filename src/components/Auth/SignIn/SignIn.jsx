@@ -117,19 +117,19 @@ const styles = ScaledSheet.create({
     welcText: {
         fontFamily: 'Proxima',
         fontSize: '25@vs',
-        color: '#336699'
+        color: '#7d0552'
     },
     welcSubText: {
         fontFamily: 'Circular',
         fontSize: '14@vs',
-        color: '#98afcf'
+        color: '#a2296e'
     },
     intIcon: {
-        color: '#36ac',
+        color: '#a2296e',
         marginHorizontal: '5@vs'
     },
     btn: {
-      backgroundColor: '#336699', 
+      backgroundColor: '#7d0552', 
       padding: 10, 
       borderRadius: 5, 
       marginBottom: '20@vs',
@@ -161,22 +161,22 @@ const styles = ScaledSheet.create({
     },  
     InputIcon: { 
        marginHorizontal: 5, 
-       color: '#98afcf', 
+       color: '#a2296e', 
        fontSize: '14@vs'
     },
     alr: {
         fontFamily: 'Circular',
         fontSize: '13@vs',
-        color: '#98afcf', 
+        color: '#a2296e', 
         textAlign: 'center'
    },
     forg: {
         fontFamily: 'Circular',
         fontSize: '13@vs',
-        color: '#36ac', 
+        color: '#a2296e', 
         marginHorizontal: '10@vs',
         borderBottomWidth: 1,
-        borderBottomColor: '#36ac',
+        borderBottomColor: '#a2296e',
         marginTop: '10@vs'
    }
 })

@@ -73,7 +73,7 @@ const OnboardScreen = () => {
                     <View key={index} style={[
                         styles.indicator,
                         currIndex == index && {
-                        backgroundColor: '#336699'
+                        backgroundColor: '#a2296e'
                     }]} />
                 ))}
                 </View>
@@ -82,7 +82,7 @@ const OnboardScreen = () => {
                 ?
                    <TouchableOpacity onPress={skipToSignUp} style={styles.getStartedLay}>
                         <Text style={styles.getStarted}>Get Started</Text>
-                        <MaterialCommunityIcons name="arrow-right" size={15} color="#36ac" />
+                        <MaterialCommunityIcons name="arrow-right" size={15} color="#7d0552" />
                    </TouchableOpacity>
                 :
                     <MaterialCommunityIcons name="arrow-right" size={23} style={styles.indicatorIcon} onPress={nextSlide} />
@@ -115,7 +115,7 @@ const styles = ScaledSheet.create({
        flex: .1,
    },
       indicatorIcon: {
-        backgroundColor: '#98afcf',
+        backgroundColor: '#7d0552',
        color: '#fff',
        paddingVertical: '8@vs',
        borderRadius: '30@vs',
@@ -125,11 +125,11 @@ const styles = ScaledSheet.create({
       fontFamily: 'Circular',
        fontSize: '12.5@vs',
        paddingHorizontal: '5@vs' ,
-       color: '#36ac'
+       color: '#7d0552'
    },
    getStartedLay: {
        borderWidth: 1,
-       borderColor: "#36ac",
+       borderColor: "#7d0552",
        paddingHorizontal: '10@vs',
        paddingVertical: '6@vs',
        borderRadius: 30,
