@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react'
-import { Text, View, Dimensions, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native';
+import { Text, View, Dimensions, TouchableOpacity, TextInput, ScrollView, Image, ActivityIndicator } from 'react-native';
 import { ScaledSheet, verticalScale } from 'react-native-size-matters';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import CustomisableAlert, { showAlert, closeAlert } from "react-native-customisable-alert";
 
 const logo = require('../../../assets/Images/futasuLogo.png');
 
@@ -14,6 +15,8 @@ const SignUp = () => {
 
     const [eye, setEye] = useState(true);
     const [coey, setCoey] = useState(true);
+    const [textStat, setTextStat] = useState(true)
+
 
     const [userData, setUserData] = useState({
         surname: '',
@@ -27,8 +30,24 @@ const SignUp = () => {
 
     const { surname, lastname, username, email, phoneNumber, password, confirmPassword } = userData ;
 
-    const moveToLogin = () => {
+    const moveToLogin = () => { 
         navigation.navigate('SignIn');
+    }
+
+    const registerFunc = async () => {
+
+    const { surname, lastname, username, email, phoneNumber, password, confirmPassword } = userData ;
+
+         if(surname || lastname || username || email || phoneNumber || password || confirmPassword === ''){
+            showAlert({
+                title: 'Field Anomaly',
+                message: 'Empty field detected... fill all fields with the necessary detail',
+                btnLabel: 'go Back',
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+            })
+        }else{
+            console.log('Working');
+        }
     }
 
     // input ref
@@ -38,7 +57,7 @@ const SignUp = () => {
     const refInput4 = useRef();
     const refInput5 = useRef();
     const refInput6 = useRef();
-
+    
 
 
     return (
@@ -69,7 +88,8 @@ const SignUp = () => {
                             placeholder="Surname"
                             style={[styles.nameInput,{ width: width / 2.8} ]}
                             returnKeyType={'next'}
-                            // onChangeText={}
+                            onChangeText={ val => setUserData({ ...userData, surname: val.trim()}) }   
+                            editable={textStat}
                             defaultValue={surname}
                             onSubmitEditing={() => refInput1.current.focus()}
                         />
@@ -82,6 +102,8 @@ const SignUp = () => {
                             placeholder="Lastname"
                             style={[styles.nameInput,{ width: width / 2.8} ]}
                             returnKeyType={'next'}
+                            onChangeText={ val => setUserData({ ...userData, lastname: val.trim()}) }   
+                            editable={textStat}
                             defaultValue={lastname}
                             onSubmitEditing={() => refInput2.current.focus()}
                         />
@@ -95,6 +117,9 @@ const SignUp = () => {
                         ref={refInput2}
                         placeholder="Enter your preferred username...."
                         style={[styles.nameInput,{ width: width - 50 } ]}
+                        onChangeText={ val => setUserData({ ...userData, username: val.trim()}) }   
+                        editable={textStat}
+                        defaultValue={username}
                         returnKeyType={'next'}
                         onSubmitEditing={() => refInput3.current.focus()}
                     />
@@ -109,6 +134,8 @@ const SignUp = () => {
                         style={[styles.nameInput,{ width: width - 50 } ]}
                         keyboardType="email-address"
                         returnKeyType={'next'}
+                        onChangeText={ val => setUserData({ ...userData, email: val.trim()}) }   
+                        editable={textStat}
                         defaultValue={email}  
                         onSubmitEditing={() => refInput4.current.focus()}
                     />
@@ -123,12 +150,14 @@ const SignUp = () => {
                         keyboardType="numeric"
                         style={[styles.nameInput,{ width: width - 50 } ]}
                         returnKeyType={'next'}
+                        onChangeText={ val => setUserData({ ...userData, phoneNumber: val.trim()}) }   
+                        editable={textStat}
                         defaultValue={phoneNumber}
                         onSubmitEditing={() => refInput5.current.focus()}
                     />
                 </View>
 
-                {/* Pssword */}
+                {/* Password */}
                 <View>
                     <View style={[styles.nameCont, {width : width - 10 }]}>
                         <Icon name="key" style={styles.InputIcon} />
@@ -137,6 +166,8 @@ const SignUp = () => {
                         placeholder="Enter a password..."
                         style={[styles.nameInput,{ width: width - 65 } ]}
                         returnKeyType={'next'}
+                        onChangeText={ val => setUserData({ ...userData, password: val.trim()}) }   
+                        editable={textStat}
                         secureTextEntry={eye}
                         defaultValue={password}
                         onSubmitEditing={() => refInput6.current.focus()}
@@ -160,6 +191,8 @@ const SignUp = () => {
                         placeholder="Confirm your password..."
                         defaultValue={confirmPassword}
                         style={[styles.nameInput,{ width: width - 65 } ]}
+                        onChangeText={ val => setUserData({ ...userData, confirmPassword: val.trim()}) }   
+                        editable={textStat}
                         secureTextEntry={coey}
                     />
                 </View>
@@ -172,7 +205,7 @@ const SignUp = () => {
 
                  {/* submit button */}
                  <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                    <TouchableOpacity  style={[styles.btn, { width: width - 50 }]}>
+                    <TouchableOpacity onPress={registerFunc}  style={[styles.btn, { width: width - 50 }]}>
                         <Text style={[styles.btnText]}> Register </Text>
                     </TouchableOpacity>
                 </View>
@@ -181,10 +214,27 @@ const SignUp = () => {
                     <Text style={styles.alr}> Already registered with us...Login?</Text>
                </TouchableOpacity>
 
+
             </View>
 
 
             </ScrollView>
+            <CustomisableAlert 
+                titleStyle={{fontSize: verticalScale(20), fontFamily: 'Proxima', color: '#7d0552'}} 
+                textStyle={{fontFamily: 'Circular', color: '#a2296e', fontSize: verticalScale(13.5)}} 
+                btnStyle={{fontFamily: 'Proxima', backgroundColor: '#7d0552', borderRadius: 5, elevation: 5}}
+                btnLabelStyle={{fontFamily: 'Proxima', fontSize: verticalScale(12), color: '#fff'}}
+            />
+
+            {/* // <CustomisableAlert titleStyle={{fontSize: verticalScale(20), fontFamily: 'Proxima', color: '#7d0552'}} 
+            //     textStyle={{fontFamily: 'Circular', color: '#98afcf', fontSize: verticalScale(13.5)}} 
+            //     btnLeftStyle={{fontFamily: 'Proxima', backgroundColor: '#7d0552', borderRadius: 5, elevation: 5}}
+            //     btnRightStyle={{fontFamily: 'Proxima', backgroundColor: '#fff', borderRadius: 5,}}
+            //     btnStyle={{fontFamily: 'Proxima', backgroundColor: '#fff', borderRadius: 5, borderWidth: 1, borderColor: '#7d0552'}}
+            //     btnLeftLabelStyle={{fontFamily: 'Proxima', fontSize: verticalScale(12), color: '#fff'}}
+            //     btnRightLabelStyle={{fontFamily: 'Proxima', fontSize: verticalScale(12), color: '#7d0552'}}
+            // /> */}
+            
         </View>
     )
 }
@@ -227,7 +277,7 @@ const styles = ScaledSheet.create({
     nameInput: {
         fontFamily: 'Circular',
         fontSize: '12.5@vs',
-        color: '#98afcf' 
+        color: '#a2296e' 
     },  
     InputIcon: { 
        marginHorizontal: 5, 
