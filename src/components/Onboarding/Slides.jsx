@@ -70,7 +70,7 @@ const styles = ScaledSheet.create({
    subject: {
        fontFamily: 'Circular',
        fontSize: '13.5@vs',
-       paddingHorizontal: '5@vs',
+       paddingHorizontal: '8@vs',
        color: '#a2296e'
    },
    title: {

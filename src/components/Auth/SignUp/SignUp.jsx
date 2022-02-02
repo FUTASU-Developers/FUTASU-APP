@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import CustomisableAlert, { showAlert, closeAlert } from "react-native-customisable-alert";
+import axios from 'axios';
 
 const logo = require('../../../assets/Images/futasuLogo.png');
 
@@ -15,7 +16,8 @@ const SignUp = () => {
 
     const [eye, setEye] = useState(true);
     const [coey, setCoey] = useState(true);
-    const [textStat, setTextStat] = useState(true)
+    const [textStat, setTextStat] = useState(true);
+    const [subLoad, setSubLoad] = useState(false);
 
 
     const [userData, setUserData] = useState({
@@ -28,7 +30,6 @@ const SignUp = () => {
         confirmPassword: ''
     });
 
-    const { surname, lastname, username, email, phoneNumber, password, confirmPassword } = userData ;
 
     const moveToLogin = () => { 
         navigation.navigate('SignIn');
@@ -38,17 +39,74 @@ const SignUp = () => {
 
     const { surname, lastname, username, email, phoneNumber, password, confirmPassword } = userData ;
 
-         if(surname || lastname || username || email || phoneNumber || password || confirmPassword === ''){
+         if(!surname || !lastname || !username || !email || !phoneNumber || !password || !confirmPassword ){
             showAlert({
                 title: 'Field Anomaly',
                 message: 'Empty field detected... fill all fields with the necessary detail',
                 btnLabel: 'go Back',
                 customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
             })
-        }else{
-            console.log('Working');
         }
-    }
+        else if(username.length <= 5){
+                showAlert({
+                    title: 'Account Error',
+                    message: 'Username too short!!... Input must be more than 5 characters',
+                    btnLabel: 'go Back',
+                    customIcon:  <MaterialCommunityIcons name="account" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                });  
+        }
+        else if(password.length <= 6 ){
+                showAlert({
+                    title: 'Password Error',
+                    message: 'Password too short!!...input must be more than 6 characters',
+                    btnLabel: 'go Back',
+                    customIcon:  <MaterialCommunityIcons name="key" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                });
+        }
+        else if(password != confirmPassword){
+                showAlert({
+                    title: 'Password Error',
+                    message: 'Passwords do no match!!...check input values',
+                    btnLabel: 'go Back',
+                    customIcon:  <MaterialCommunityIcons name="key" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                });
+        }
+        else{
+            setSubLoad(true);
+            setTextStat(false);
+            // const dataPush = await axios.post('', userData );
+            // try{
+            //     const response = dataPush.data ;
+            //         setSubLoad(false);
+            //         setTextStat(true);
+            //         if(response.data.status == 200){
+            //             showAlert({
+            //                 title: 'Registration Status',
+            //                 message: `${response}`,
+            //                 btnLabel: 'Proceed',
+            //                 onPress : () => {
+            //                     navigation.navigate('SignIn');
+            //                     setRegBtn(false);
+            //                     setTextStat(true);
+            //             }
+            //         })
+            //         }else{
+            //             showAlert({
+            //                 title: 'Registration Status',
+            //                 message: `${response}`,
+            //                 btnLabel: 'Check',
+            //                 onPress : () => {
+            //                     setRegBtn(false);
+            //                     setTextStat(true);
+            //             }
+            //         })
+            //         }
+                   
+            // }catch(err){
+            //     console.log(err);
+            // }
+        }
+    } 
 
     // input ref
     const refInput1 = useRef();
@@ -59,6 +117,7 @@ const SignUp = () => {
     const refInput6 = useRef();
     
 
+    const { surname, lastname, username, email, phoneNumber, password, confirmPassword } = userData ;
 
     return (
         <View style={[styles.container, { width }]}>
@@ -206,7 +265,11 @@ const SignUp = () => {
                  {/* submit button */}
                  <View style={{alignItems: 'center', justifyContent: 'center'}}>
                     <TouchableOpacity onPress={registerFunc}  style={[styles.btn, { width: width - 50 }]}>
+                        { !subLoad ? 
                         <Text style={[styles.btnText]}> Register </Text>
+                        :
+                        <ActivityIndicator size="small" color="#fff" />
+                        }
                     </TouchableOpacity>
                 </View>
 
@@ -225,16 +288,6 @@ const SignUp = () => {
                 btnStyle={{fontFamily: 'Proxima', backgroundColor: '#7d0552', borderRadius: 5, elevation: 5}}
                 btnLabelStyle={{fontFamily: 'Proxima', fontSize: verticalScale(12), color: '#fff'}}
             />
-
-            {/* // <CustomisableAlert titleStyle={{fontSize: verticalScale(20), fontFamily: 'Proxima', color: '#7d0552'}} 
-            //     textStyle={{fontFamily: 'Circular', color: '#98afcf', fontSize: verticalScale(13.5)}} 
-            //     btnLeftStyle={{fontFamily: 'Proxima', backgroundColor: '#7d0552', borderRadius: 5, elevation: 5}}
-            //     btnRightStyle={{fontFamily: 'Proxima', backgroundColor: '#fff', borderRadius: 5,}}
-            //     btnStyle={{fontFamily: 'Proxima', backgroundColor: '#fff', borderRadius: 5, borderWidth: 1, borderColor: '#7d0552'}}
-            //     btnLeftLabelStyle={{fontFamily: 'Proxima', fontSize: verticalScale(12), color: '#fff'}}
-            //     btnRightLabelStyle={{fontFamily: 'Proxima', fontSize: verticalScale(12), color: '#7d0552'}}
-            // /> */}
-            
         </View>
     )
 }

@@ -3,13 +3,16 @@ import { StyleSheet, Text, View, SafeAreaView,  Dimensions,  StatusBar, Image, T
 import Icon from 'react-native-vector-icons/Ionicons';
 import {MaterialCommunityIcons} from 'react-native-vector-icons';
 import { ScaledSheet, verticalScale } from 'react-native-size-matters';
+import CustomisableAlert, { showAlert, closeAlert } from "react-native-customisable-alert";
 
 
 const logo = require('../../../assets/Images/futasuLogo.png');
 
 
-const Verify = ({ navigation }) => {
+const Verify = ({ navigation, route }) => {
     const { width, height } = Dimensions.get('window');
+
+    const  {email, recoveryCode}  = route.params;
 
     const [buttonValid, setButtonValid] = useState(false);
     const [ code, setCode ] = useState({ passcode: ['','','','']});
@@ -61,16 +64,24 @@ const Verify = ({ navigation }) => {
         const UserVerification = async () => {
             const pass = (passcode.join(""));
             if(sendStat === true){
-                console.log(pass);
-                navigation.navigate('ChangePwd');
+                if(pass == recoveryCode){
+                    console.log(recoveryCode, pass);
+                    navigation.navigate('ChangePwd', { email });
+                }else{
+                    showAlert({
+                        title: 'Code Error',
+                        message: 'Expired/Invalid code... check your mail for the correct code or  request for another!!',
+                        btnLabel: 'go Back',
+                        customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                    });
+                }
             }else{
-                 
-                 Alert.alert('VERIFICATION ERROR', 'Verification code error',[
-               {
-                   text: 'Cancel',
-                   style: 'cancel'
-               }
-           ])
+              showAlert({
+                title: 'Code Error',
+                message: 'You need to provide the code sent to your mail to proceed....',
+                btnLabel: 'go Back',
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+            });
             }
         }
 

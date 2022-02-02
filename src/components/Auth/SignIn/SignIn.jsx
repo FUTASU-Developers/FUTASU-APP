@@ -1,15 +1,19 @@
 import React, { useState, useRef } from 'react'
-import { Text, View, Dimensions, TouchableOpacity, ScrollView, TextInput } from 'react-native';
+import { Text, View, Dimensions, TouchableOpacity, ScrollView, TextInput,ActivityIndicator } from 'react-native';
 import { ScaledSheet, verticalScale } from 'react-native-size-matters';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import ForgotModal from './ForgotModal';
+import { showAlert, closeAlert } from 'react-native-customisable-alert';
+import axios from 'axios';
 
 const SignIn = () => {
     const navigation = useNavigation();
     const { width } = Dimensions.get('window');
     const [modal, setModal] = useState(false);
+    const [textStat, setTextStat] = useState(true);
+    const [subLoad, setSubLoad] = useState(false);
 
     const [userData, setUserData] = useState({
         username: '',
@@ -24,6 +28,44 @@ const SignIn = () => {
 
     // input ref
     const refInput1 = useRef();
+
+    const loginFunc = async () => {
+        if(!username || !password){
+            showAlert({
+                title: 'SignIn Error',
+                message: 'Fill in all fields properly... Cannot validate empty parameters',
+                btnLabel: 'Check field',
+                customIcon:  <Icon name="ios-warning" size={ 90 } style={{ marginVertical: 5, color: '#7d0552'}} /> 
+            });
+        }else{
+            setSubLoad(true);
+            setTextStat(false);
+                 const dataPush = await axios.post('localhost:3000', userData );
+            try{
+                const response = dataPush.data ;
+                    setSubLoad(false);
+                    setTextStat(true);
+                    if(response.data.status == 200){
+                         const user = response.user;
+                        //  await AsyncStorage.setItem('token', JSON.stringify(token));
+                         navigation.navigate('App');
+                    }else{
+                        showAlert({
+                            title: 'SignIn Status',
+                            message: `${response}`,
+                            btnLabel: 'Check',
+                            onPress : () => {
+                                setRegBtn(false);
+                                setTextStat(true);
+                        }
+                    })
+                    }
+                   
+            }catch(err){
+                console.log(err);
+            }
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -53,6 +95,8 @@ const SignIn = () => {
                             style={[styles.nameInput,{ } ]}
                             returnKeyType={'next'}
                             defaultValue={username}
+                            editable={textStat}
+                            onChangeText={ val => setUserData({...userData, username: val.trim()})}
                             onSubmitEditing={() => refInput1.current.focus()}
                         />
                     </View>
@@ -65,7 +109,9 @@ const SignIn = () => {
                             placeholder="Enter your password...."
                             style={[styles.nameInput,{ } ]}
                             returnKeyType={'done'}
+                            onChangeText={ val => setUserData({...userData, password: val.trim()})}
                             defaultValue={password}
+                            editable={textStat}
                             secureTextEntry={true}
                         />
                     </View>
@@ -81,8 +127,12 @@ const SignIn = () => {
 
                      {/* login button */}
                  <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                    <TouchableOpacity  style={[styles.btn, { width: width - 50 }]}>
+                    <TouchableOpacity  style={[styles.btn, { width: width - 50 }]} onPress={loginFunc}>
+                         { !subLoad ? 
                         <Text style={[styles.btnText]}> Login now!! </Text>
+                        :
+                        <ActivityIndicator size="small" color="#fff" />
+                        }
                     </TouchableOpacity>
                 </View>
                 
@@ -157,7 +207,7 @@ const styles = ScaledSheet.create({
     nameInput: {
         fontFamily: 'Circular',
         fontSize: '12.5@vs',
-        color: '#98afcf' 
+        color: '#a2296e' 
     },  
     InputIcon: { 
        marginHorizontal: 5, 

@@ -3,20 +3,90 @@ import { Text, View, Dimensions, TouchableOpacity, ScrollView, TextInput, Modal 
 import { ScaledSheet, verticalScale } from 'react-native-size-matters';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import Icon from 'react-native-vector-icons/Ionicons';
+import CustomisableAlert, { showAlert, closeAlert } from "react-native-customisable-alert";
 import { useNavigation } from '@react-navigation/native';
 
-const ChangePwd = () => {
+
+const ChangePwd = ({ route }) => {
     const navigation = useNavigation();
     const { width } = Dimensions.get('window');
 
-    const processChange = () => {
-        navigation.navigate('SignUp');
+    const { email } = route.params ;
+
+    const [pwdData, setPwdData] = useState({
+        password: '',
+        confirmPwd: ''
+    });
+
+    const { password, confirmPwd } = pwdData ;
+
+    const processChange = async () => { 
+        if(!password || !confirmPwd){
+            showAlert({
+                title: 'Field Anomaly',
+                message: 'Empty field detected... Empty parameters are not allowed',
+                btnLabel: 'go Back',
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+            })
+        } else if(password !== confirmPwd){
+            showAlert({
+                title: 'MisMatch',
+                message: 'Passwords do not match!!!',
+                btnLabel: 'go Back',
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+            })
+        }
+        else{
+            navigation.navigate('SignIn');
+            // const request = await axios.post('', { email });
+            // try{
+            //     let response = request.data ;
+            //         if(response.status === 200) {
+            //             showAlert({
+            //                 title: 'Change Success',
+            //                 message: `You can now login with your new password `,
+            //                 btnLabel: 'Proceed',
+            //                 customIcon:  <MaterialCommunityIcons name="checkbox-multiple-marked-circle-outline" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+            //                 onPress: () => {
+            //                     navigation.navigate('SignIn');
+            //                 }
+            //             }) 
+            //          }else{
+            //                 showAlert({
+            //                 title: 'Network Error',
+            //                 message: `Error in changing password`,
+            //                 btnLabel: 'Try again',
+            //                 customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> 
+            //             }
+            // }catch(err){
+            //     console.log(err);
+            // }
+            
+        }
+
     }
 
   return (
     <View style={[ styles.container ]}>
         <MaterialCommunityIcons name="chevron-left" onPress={() => navigation.navigate('SignUp')} size={35} style={styles.topIcon}  />
+
+               <View style={{ justifyContent: 'center', alignItems: 'center'}}>
+                    <View style={{
+                        backgroundColor: '#7d0552',
+                        borderRadius: 80,
+                        width: 80, height: 80,
+                        alignItems: 'center',
+                        justifyContent: 'center' }}>
+
+                            <MaterialCommunityIcons name="key" size={ 60 } style={{ 
+                            marginVertical: verticalScale(5), 
+                            color: '#ffff',
+                        }} />  
+                    </View>
+               </View>
+
       <Text style={[styles.topText]}> Change your password </Text>
+      <Text style={[styles.topSubText]}> Use strong password to keep your account secured</Text>
 
         <ScrollView
                 showsVerticalScrollIndicator={false}
@@ -34,20 +104,22 @@ const ChangePwd = () => {
                             placeholder="Enter new password...."
                             style={[styles.nameInput,{ } ]}
                             returnKeyType={'next'}
-                            // defaultValue={}
-                            // onSubmitEditing={() => refInput1.current.focus()}
+                            defaultValue={password}
+                            secureTextEntry={true}
+                            onChangeText={ val => setPwdData({ ...pwdData, password: val })}
                         />
                     </View>
 
                     {/* username */}
                     <View style={[styles.nameCont, { width: width - 20  }]}>
-                        <MaterialCommunityIcons name="key" style={styles.InputIcon} />
+                        <Icon name="key" style={styles.InputIcon} />
                         <TextInput
                             placeholder="Confirm your new password...."
                             style={[styles.nameInput,{ } ]}
                             returnKeyType={'done'}
-                            // defaultValue={}
+                            defaultValue={confirmPwd}
                             secureTextEntry={true}
+                            onChangeText={ val => setPwdData({ ...pwdData, confirmPwd: val })}
                         />
                     </View>
                 </View>
@@ -73,12 +145,20 @@ const styles = ScaledSheet.create({
     topText: {
         fontFamily: 'Proxima',
         color: '#7d0552',
-        fontSize: '25@vs',
-        marginLeft: '5@vs',
-        marginTop: '5@vs'
+        fontSize: '24@vs',
+        marginTop: '10@vs',
+        textAlign: 'center'
+    },
+    topSubText: {
+        fontFamily: 'Circular',
+        color: '#7d0552',
+        fontSize: '14@vs',
+        marginTop: '1@vs',
+        textAlign: 'center'
     },
     topIcon: {
-        color: '#7d0552'
+        color: '#7d0552',
+        marginHorizontal: '10@vs'
     },
       nameCont: {
         borderBottomWidth: 1, 
@@ -93,7 +173,7 @@ const styles = ScaledSheet.create({
     nameInput: {
         fontFamily: 'Circular',
         fontSize: '12.5@vs',
-        color: '#98afcf' 
+        color: '#a2296e' 
     },  
     InputIcon: { 
        marginHorizontal: 5, 
