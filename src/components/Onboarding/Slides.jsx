@@ -16,12 +16,11 @@ const Slides = ({ item }) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.skipLayout}>
 
+            <View style={styles.skipLayout}>
                 <TouchableOpacity onPress={skipToSignUp}>
                     <Text style={styles.skipText}> SKIP </Text>
                 </TouchableOpacity>
-
             </View>
 
             <View style={styles.onboardImageLay}>
@@ -32,9 +31,6 @@ const Slides = ({ item }) => {
                 <Text style={styles.title}> {item.title} </Text>
                 <Text style={styles.subject}>{item.subject} </Text>
            </View>
-
-         
-
 
         </View>
     )

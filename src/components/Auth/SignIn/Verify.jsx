@@ -70,7 +70,7 @@ const Verify = ({ navigation, route }) => {
                 }else{
                     showAlert({
                         title: 'Code Error',
-                        message: 'Expired/Invalid code... check your mail for the correct code or  request for another!!',
+                        message: 'Expired/Invalid code... check your mail for the correct code or request for another!!',
                         btnLabel: 'go Back',
                         customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
                     });
