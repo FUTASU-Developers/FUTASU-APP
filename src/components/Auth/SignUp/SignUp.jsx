@@ -44,7 +44,7 @@ const SignUp = () => {
                 title: 'Field Anomaly',
                 message: 'Empty field detected... fill all fields with the necessary detail',
                 btnLabel: 'go Back',
-                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
             })
         }
         else if(username.length <= 5){
@@ -52,7 +52,7 @@ const SignUp = () => {
                     title: 'Account Error',
                     message: 'Username too short!!... Input must be more than 5 characters',
                     btnLabel: 'go Back',
-                    customIcon:  <MaterialCommunityIcons name="account" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                    customIcon:  <MaterialCommunityIcons name="account" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
                 });  
         }
         else if(password.length <= 6 ){
@@ -60,7 +60,7 @@ const SignUp = () => {
                     title: 'Password Error',
                     message: 'Password too short!!...input must be more than 6 characters',
                     btnLabel: 'go Back',
-                    customIcon:  <MaterialCommunityIcons name="key" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                    customIcon:  <MaterialCommunityIcons name="key" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
                 });
         }
         else if(password != confirmPassword){
@@ -68,7 +68,7 @@ const SignUp = () => {
                     title: 'Password Error',
                     message: 'Passwords do no match!!...check input values',
                     btnLabel: 'go Back',
-                    customIcon:  <MaterialCommunityIcons name="key" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                    customIcon:  <MaterialCommunityIcons name="key" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
                 });
         }
         else{
@@ -234,9 +234,9 @@ const SignUp = () => {
                 </View>
 
                  { eye ? 
-                       <Icon name="ios-eye-off" style={{ marginRight: verticalScale(5), color: '#7d0552', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setEye(false)} />
+                       <Icon name="ios-eye-off" style={{ marginRight: verticalScale(5), color: '#800070', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setEye(false)} />
                         :
-                        <Icon name="ios-eye" style={{ marginRight: verticalScale(5), color: '#7d0552', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setEye(true)} />
+                        <Icon name="ios-eye" style={{ marginRight: verticalScale(5), color: '#800070', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setEye(true)} />
                 }
 
                 </View>
@@ -256,9 +256,9 @@ const SignUp = () => {
                     />
                 </View>
                 { coey ? 
-                       <Icon name="ios-eye-off" style={{ marginRight: verticalScale(5), color: '#7d0552', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setCoey(false)} />
+                       <Icon name="ios-eye-off" style={{ marginRight: verticalScale(5), color: '#800070', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setCoey(false)} />
                         :
-                        <Icon name="ios-eye" style={{ marginRight: verticalScale(5), color: '#7d0552', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setCoey(true)} />
+                        <Icon name="ios-eye" style={{ marginRight: verticalScale(5), color: '#800070', fontSize: verticalScale(16), position: 'absolute', right: 0, marginTop: verticalScale(18) }} onPress={ () => setCoey(true)} />
                 }
                 </View>
 
@@ -283,9 +283,9 @@ const SignUp = () => {
 
             </ScrollView>
             <CustomisableAlert 
-                titleStyle={{fontSize: verticalScale(20), fontFamily: 'Proxima', color: '#7d0552'}} 
-                textStyle={{fontFamily: 'Circular', color: '#a2296e', fontSize: verticalScale(13.5)}} 
-                btnStyle={{fontFamily: 'Proxima', backgroundColor: '#7d0552', borderRadius: 5, elevation: 5}}
+                titleStyle={{fontSize: verticalScale(20), fontFamily: 'Proxima', color: '#800070'}} 
+                textStyle={{fontFamily: 'Circular', color: '#800065', fontSize: verticalScale(13.5)}} 
+                btnStyle={{fontFamily: 'Proxima', backgroundColor: '#800070', borderRadius: 5, elevation: 5}}
                 btnLabelStyle={{fontFamily: 'Proxima', fontSize: verticalScale(12), color: '#fff'}}
             />
         </View>
@@ -303,13 +303,13 @@ const styles = ScaledSheet.create({
     regText: {
         fontFamily: 'Proxima',
         fontSize: '23@vs',
-        color: '#7d0552',
+        color: '#800070',
         textAlign: 'center'
     },
     regSubText: {
         fontFamily: 'Circular',
         fontSize: '13@vs',
-        color: '#a2296e',
+        color: '#800070',
         textAlign: 'center'
     },
     nameLayout: {
@@ -334,11 +334,11 @@ const styles = ScaledSheet.create({
     },  
     InputIcon: { 
        marginHorizontal: 5, 
-       color: '#7d0552', 
+       color: '#800070', 
        fontSize: '14@vs'
     },
     btn: {
-      backgroundColor: '#7d0552', 
+      backgroundColor: '#800070', 
       padding: 10, 
       borderRadius: 5, 
       marginBottom: '20@vs',
@@ -378,6 +378,6 @@ const styles = ScaledSheet.create({
    alr: {
         fontFamily: 'Circular',
         fontSize: '13@vs',
-        color: '#7d0552', 
+        color: '#800070', 
    }
 })

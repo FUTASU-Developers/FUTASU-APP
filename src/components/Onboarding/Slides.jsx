@@ -60,23 +60,24 @@ const styles = ScaledSheet.create({
    },
    skipText: {
        fontFamily: 'Proxima',
-       color: '#a2296e',
+       color: '#800070',
        fontSize: '15@vs'
    },
    subject: {
        fontFamily: 'Circular',
        fontSize: '13.5@vs',
        paddingHorizontal: '8@vs',
-       color: '#a2296e'
+       color: '#800060'
    },
    title: {
        fontFamily: "Proxima",
        fontSize: '23@vs',
        marginTop: '8@vs',
-       color: '#7d0552' 
+       color: '#800070' 
    },
    onboardImage: {
        resizeMode: 'contain',
+
    }
 
 });

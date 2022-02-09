@@ -73,7 +73,7 @@ const OnboardScreen = () => {
                     <View key={index} style={[
                         styles.indicator,
                         currIndex == index && {
-                        backgroundColor: '#a2296e'
+                        backgroundColor: '#800070'
                     }]} />
                 ))}
                 </View>
@@ -82,7 +82,7 @@ const OnboardScreen = () => {
                 ?
                    <TouchableOpacity onPress={skipToSignUp} style={styles.getStartedLay}>
                         <Text style={styles.getStarted}>Get Started</Text>
-                        <MaterialCommunityIcons name="arrow-right" size={15} color="#7d0552" />
+                        <MaterialCommunityIcons name="arrow-right" size={15} color="#fff" />
                    </TouchableOpacity>
                 :
                     <MaterialCommunityIcons name="arrow-right" size={23} style={styles.indicatorIcon} onPress={nextSlide} />
@@ -115,7 +115,7 @@ const styles = ScaledSheet.create({
        flex: .1,
    },
       indicatorIcon: {
-        backgroundColor: '#7d0552',
+       backgroundColor: '#800070',
        color: '#fff',
        paddingVertical: '8@vs',
        borderRadius: '30@vs',
@@ -125,14 +125,15 @@ const styles = ScaledSheet.create({
       fontFamily: 'Circular',
        fontSize: '12.5@vs',
        paddingHorizontal: '5@vs' ,
-       color: '#7d0552'
+       color: '#fff'
    },
    getStartedLay: {
        borderWidth: 1,
-       borderColor: "#7d0552",
+       borderColor: "#800070",
        paddingHorizontal: '10@vs',
        paddingVertical: '6@vs',
        borderRadius: 30,
-       flexDirection: 'row'
+       flexDirection: 'row',
+       backgroundColor: '#800070'
    }
 });

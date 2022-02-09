@@ -20,7 +20,7 @@ const ForgotModal = ({ visibility, changeModal }) => {
                 title: 'Mail Error',
                 message: 'Empty field detected!!... Enter your mail to recieve code',
                 btnLabel: 'go Back',
-                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
             });
         }else{
             let recoveryCode = '0000' ;
@@ -33,7 +33,7 @@ const ForgotModal = ({ visibility, changeModal }) => {
             //         title: 'Mail Success',
             //         message: `A password recovery code has been sent to ${email} `,
             //         btnLabel: 'Proceed',
-            //         customIcon:  <MaterialCommunityIcons name="checkbox-multiple-marked-circle-outline" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+            //         customIcon:  <MaterialCommunityIcons name="checkbox-multiple-marked-circle-outline" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
             //         onPress: () => {
             //             navigation.navigate('Verify', { params: recoveryCode });
             //         }
@@ -54,7 +54,7 @@ const ForgotModal = ({ visibility, changeModal }) => {
                 <View style={{ justifyContent: 'center', alignItems: 'center'}}>
 
                     <View style={{
-                        backgroundColor: '#7d0552',
+                        backgroundColor: '#800070',
                         borderRadius: 90,
                         width: 90, height: 90,
                         alignItems: 'center',
@@ -116,20 +116,20 @@ const styles = ScaledSheet.create({
     modalClose: {
         marginVertical: '10@vs',
         marginHorizontal: '10@vs',
-        color: '#7d0552',
+        color: '#800070',
     },
     modalTopText: {
         fontFamily: 'Proxima',
         textAlign: 'center',
         fontSize: '22@vs',
-        color: '#7d0552',
+        color: '#800070',
         marginTop: '10@vs'
     },
     modalTopTextII: {
         fontFamily: 'Circular',
         textAlign: 'center',
         fontSize: '13@vs',
-        color: '#7d0552',
+        color: '#800070',
     },
      nameCont: {
         borderBottomWidth: 1, 
@@ -148,11 +148,11 @@ const styles = ScaledSheet.create({
     },  
     InputIcon: { 
        marginHorizontal: 5, 
-       color: '#7d0552', 
+       color: '#800070', 
        fontSize: '14@vs'
     },
      btn: {
-      backgroundColor: '#7d0552', 
+      backgroundColor: '#800070', 
       padding: 10, 
       borderRadius: 5, 
       marginBottom: '20@vs',

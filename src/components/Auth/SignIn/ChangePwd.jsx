@@ -26,14 +26,14 @@ const ChangePwd = ({ route }) => {
                 title: 'Field Anomaly',
                 message: 'Empty field detected... Empty parameters are not allowed',
                 btnLabel: 'go Back',
-                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
             })
         } else if(password !== confirmPwd){
             showAlert({
                 title: 'MisMatch',
                 message: 'Passwords do not match!!!',
                 btnLabel: 'go Back',
-                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
             })
         }
         else{
@@ -46,7 +46,7 @@ const ChangePwd = ({ route }) => {
             //                 title: 'Change Success',
             //                 message: `You can now login with your new password `,
             //                 btnLabel: 'Proceed',
-            //                 customIcon:  <MaterialCommunityIcons name="checkbox-multiple-marked-circle-outline" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+            //                 customIcon:  <MaterialCommunityIcons name="checkbox-multiple-marked-circle-outline" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
             //                 onPress: () => {
             //                     navigation.navigate('SignIn');
             //                 }
@@ -56,7 +56,7 @@ const ChangePwd = ({ route }) => {
             //                 title: 'Network Error',
             //                 message: `Error in changing password`,
             //                 btnLabel: 'Try again',
-            //                 customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> 
+            //                 customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> 
             //             }
             // }catch(err){
             //     console.log(err);
@@ -72,7 +72,7 @@ const ChangePwd = ({ route }) => {
 
                <View style={{ justifyContent: 'center', alignItems: 'center'}}>
                     <View style={{
-                        backgroundColor: '#7d0552',
+                        backgroundColor: '#800070',
                         borderRadius: 80,
                         width: 80, height: 80,
                         alignItems: 'center',
@@ -144,20 +144,20 @@ const styles = ScaledSheet.create({
     },
     topText: {
         fontFamily: 'Proxima',
-        color: '#7d0552',
+        color: '#800070',
         fontSize: '24@vs',
         marginTop: '10@vs',
         textAlign: 'center'
     },
     topSubText: {
         fontFamily: 'Circular',
-        color: '#7d0552',
+        color: '#800070',
         fontSize: '14@vs',
         marginTop: '1@vs',
         textAlign: 'center'
     },
     topIcon: {
-        color: '#7d0552',
+        color: '#800070',
         marginHorizontal: '10@vs'
     },
       nameCont: {
@@ -181,7 +181,7 @@ const styles = ScaledSheet.create({
        fontSize: '14@vs'
     },
     btn: {
-      backgroundColor: '#7d0552', 
+      backgroundColor: '#800070', 
       padding: 10, 
       borderRadius: 5, 
       marginBottom: '20@vs',

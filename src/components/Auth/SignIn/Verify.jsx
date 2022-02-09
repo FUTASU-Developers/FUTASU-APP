@@ -72,7 +72,7 @@ const Verify = ({ navigation, route }) => {
                         title: 'Code Error',
                         message: 'Expired/Invalid code... check your mail for the correct code or request for another!!',
                         btnLabel: 'go Back',
-                        customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                        customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
                     });
                 }
             }else{
@@ -80,7 +80,7 @@ const Verify = ({ navigation, route }) => {
                 title: 'Code Error',
                 message: 'You need to provide the code sent to your mail to proceed....',
                 btnLabel: 'go Back',
-                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#7d0552'}} /> ,
+                customIcon:  <MaterialCommunityIcons name="alert" size={ 80 } style={{ marginVertical: verticalScale(5), color: '#800070'}} /> ,
             });
             }
         }
@@ -139,7 +139,7 @@ const Verify = ({ navigation, route }) => {
 
         <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 5, marginBottom: 10, alignItems: 'center' }}>
             <Text style={{ fontFamily: 'Circular', color: '#222', fontSize: verticalScale(12) }}> Did not receive verification code?  </Text>
-            <Text style={{ fontFamily: 'Circular', color: '#7d0552' , fontSize: verticalScale(11) }} onPress={Resend}>Resend </Text>
+            <Text style={{ fontFamily: 'Circular', color: '#800070' , fontSize: verticalScale(11) }} onPress={Resend}>Resend </Text>
         </View>
 
         <TouchableOpacity ref={ref} onPress={UserVerification} style={[ !buttonValid ? styles.InvalidButton : styles.btn, { width: width - 150 }]}>
@@ -159,11 +159,11 @@ const styles = ScaledSheet.create({
         flexDirection: 'row', 
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#7d0552' , 
+        backgroundColor: '#800070' , 
         marginHorizontal: 5, 
         marginVertical: 15},
     btn: {
-         backgroundColor: '#7d0552' , 
+         backgroundColor: '#800070' , 
         padding: '10@vs', 
         borderRadius: 30, 
         marginBottom: 50,
@@ -176,7 +176,7 @@ const styles = ScaledSheet.create({
    },
    btnText: {
         fontSize: '13@vs', 
-        color: '#7d0552', 
+        color: '#800070', 
         textAlign: 'center', 
         fontFamily: 'Circular',
    },
@@ -206,7 +206,7 @@ const styles = ScaledSheet.create({
         height: '12@vs', 
         borderRadius: '12@vs',
         marginHorizontal: 15, 
-        backgroundColor: '#7d0552',
+        backgroundColor: '#800070',
    },
    numContainer: {
         marginTop: '20@vs', 
@@ -221,7 +221,7 @@ const styles = ScaledSheet.create({
         borderRadius: '5@vs', 
         justifyContent: 'center', 
         alignItems: 'center', 
-        marginHorizontal: '4@vs', 
+        marginHorizontal: '5@vs', 
         marginVertical: '10@vs'
    },
    num1: {
@@ -238,11 +238,11 @@ const styles = ScaledSheet.create({
        fontSize: '25@vs', 
        fontFamily: 'Proxima', 
        textAlign: 'center', 
-       color:'#7d0552'
+       color:'#800070'
    },
    navBack: {
       fontSize: '27@vs', 
-      color: '#7d0552',
+      color: '#800070',
       marginLeft: '7@vs'  
    },
    backContainer: {
@@ -253,14 +253,14 @@ const styles = ScaledSheet.create({
     },
     IntroText: {
         fontFamily: 'Proxima',
-        color: '#7d0552',
+        color: '#800070',
         fontSize: '20@vs',
         textAlign: 'center', 
         marginTop: '5@vs'
     },
     IntroSubText: {
         fontFamily: 'Circular', 
-        color: '#a2296e', 
+        color: '#800065', 
         fontSize: '13@vs', 
         marginTop: '2@vs'
     },

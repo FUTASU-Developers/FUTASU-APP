@@ -35,7 +35,7 @@ const SignIn = () => {
                 title: 'SignIn Error',
                 message: 'Fill in all fields properly... Cannot validate empty parameters',
                 btnLabel: 'Check field',
-                customIcon:  <Icon name="ios-warning" size={ 90 } style={{ marginVertical: 5, color: '#7d0552'}} /> 
+                customIcon:  <Icon name="ios-warning" size={ 90 } style={{ marginVertical: 5, color: '#800070'}} /> 
             });
         }else{
             setSubLoad(true);
@@ -167,7 +167,7 @@ const styles = ScaledSheet.create({
     welcText: {
         fontFamily: 'Proxima',
         fontSize: '25@vs',
-        color: '#7d0552'
+        color: '#800070'
     },
     welcSubText: {
         fontFamily: 'Circular',
@@ -179,7 +179,7 @@ const styles = ScaledSheet.create({
         marginHorizontal: '5@vs'
     },
     btn: {
-      backgroundColor: '#7d0552', 
+      backgroundColor: '#800070', 
       padding: 10, 
       borderRadius: 5, 
       marginBottom: '20@vs',
