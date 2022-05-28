@@ -7,21 +7,25 @@ const { width, height } = Dimensions.get("window");
 export const Tile = (props) => {
   return (
     <TouchableOpacity
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#FFFEFE",
-        width: width / 2.4,
-        height: width / 2.4,
-        borderRadius: 16,
-        borderWidth: 1,
-        borderColor: "#D6D6D6",
-      }}
+      activeOpacity={0.7}
+      style={[
+        {
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#FFFEFE",
+          width: width / 2.45,
+          height: width / 2.45,
+          borderRadius: 16,
+          borderWidth: 1,
+          borderColor: "#D6D6D6",
+        },
+        props.style,
+      ]}
     >
       <View>
         <Image
           source={props.image}
-          style={{ height: 80, width: 80 }}
+          style={{ height: 80, width: 80, alignSelf: "center" }}
           alt="tile"
         />
         <Text

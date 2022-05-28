@@ -15,6 +15,7 @@ import { useNavigation } from "@react-navigation/core";
 
 const TopStack = (props) => {
   const navigation = useNavigation();
+  const { width, height } = Dimensions.get("window");
   return (
     <View style={{ backgroundColor: "white" }}>
       <View

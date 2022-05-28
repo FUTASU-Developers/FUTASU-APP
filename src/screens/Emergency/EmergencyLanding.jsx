@@ -24,13 +24,35 @@ const EmergencyLanding = ({ navigation }) => {
         style={{
           width: "88%",
           alignSelf: "center",
-          marginTop: verticalScale(30),
+          marginTop: 40,
         }}
       >
-        <View>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Tile
             title="Theft"
             image={require("../../assets/Images/Theft.png")}
+          />
+          <Tile
+            title="Fire Accident"
+            image={require("../../assets/Images/Fire.png")}
+          />
+        </View>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginTop: 20,
+          }}
+        >
+          <Tile
+            title="Harassment"
+            image={require("../../assets/Images/Harassment.png")}
+          />
+          <Tile
+            style={{ backgroundColor: "#FFF3FD" }}
+            title="Custom Emergency"
+            image={require("../../assets/Images/Custom.png")}
           />
         </View>
       </View>
