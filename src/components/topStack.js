@@ -39,8 +39,8 @@ const TopStack = (props) => {
         <View>
           <Text
             style={{
-              fontSize: 22,
-              fontFamily: "SfPro",
+              fontSize: scale(16),
+              fontFamily: "SfProBold",
               color: "#4D4351",
               textAlign: "center",
             }}

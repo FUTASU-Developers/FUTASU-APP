@@ -1,12 +1,39 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
+
+import { scale } from "react-native-size-matters";
+const { width, height } = Dimensions.get("window");
 
 export const Tile = (props) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      style={{
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#FFFEFE",
+        width: width / 2.4,
+        height: width / 2.4,
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: "#D6D6D6",
+      }}
+    >
       <View>
-        <Image source={props.image} alt="tile" />
-        <Text style={{ textAlign: "center" }}>{props.title}</Text>
+        <Image
+          source={props.image}
+          style={{ height: 80, width: 80 }}
+          alt="tile"
+        />
+        <Text
+          style={{
+            textAlign: "center",
+            fontFamily: "SfProBold",
+            fontSize: scale(13),
+            marginTop: 10,
+          }}
+        >
+          {props.title}
+        </Text>
       </View>
     </TouchableOpacity>
   );

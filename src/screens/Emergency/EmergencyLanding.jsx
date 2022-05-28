@@ -9,7 +9,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { scale, ScaledSheet } from "react-native-size-matters";
+import { scale, ScaledSheet, verticalScale } from "react-native-size-matters";
 import Icon from "react-native-vector-icons/Ionicons";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
 import TopStack from "../../components/topStack";
@@ -18,12 +18,15 @@ import { Tile } from "../../components/Tile";
 const EmergencyLanding = ({ navigation }) => {
   return (
     <View style={{ backgroundColor: "white", height: "100%" }}>
-      <TopStack
-        title="Emergency Details"
-        navigate={() => navigation.goBack()}
-      />
+      <TopStack title="Emergency List" navigate={() => navigation.goBack()} />
 
-      <View>
+      <View
+        style={{
+          width: "88%",
+          alignSelf: "center",
+          marginTop: verticalScale(30),
+        }}
+      >
         <View>
           <Tile
             title="Theft"
