@@ -23,14 +23,14 @@ const TopStack = (props) => {
           width: "88%",
           alignSelf: "center",
           flexDirection: "row",
-          marginTop: 60,
+          marginTop: 55,
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
         <View>
           <Icon
-            size={35}
+            size={30}
             color="#4D4351"
             name="ios-chevron-back"
             onPress={() => navigation.goBack()}

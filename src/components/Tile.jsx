@@ -7,6 +7,7 @@ const { width, height } = Dimensions.get("window");
 export const Tile = (props) => {
   return (
     <TouchableOpacity
+      onPress={props.onPress}
       activeOpacity={0.7}
       style={[
         {

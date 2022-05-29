@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     fontFamily: "SfProBold",
   },
   animatedStyle: {
-    top: 0,
+    top: 2,
     position: "absolute",
     zIndex: 10000,
   },
