@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { TextInput, View, Text, ScrollView } from "react-native";
 import { scale, ScaledSheet, verticalScale } from "react-native-size-matters";
 import AppButton from "../../components/Appbutton";
+import SuccessModal from "../../components/Emergency/SuccessModal";
 import FloatingInput from "../../components/FloatingIInput";
 import TopStack from "../../components/topStack";
 
 const EmergencyDetails = ({ route }) => {
   const { type } = route.params;
+  const [visible, setVisible] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
       <TopStack title="Emergency Details" />
@@ -86,8 +88,15 @@ const EmergencyDetails = ({ route }) => {
           />
         </View>
 
-        <AppButton title="Request Help" style={{ marginTop: 50 }} />
+        <AppButton
+          title="Request Help"
+          style={{ marginTop: 50 }}
+          onPress={() => {
+            setVisible(!visible);
+          }}
+        />
       </ScrollView>
+      <SuccessModal visible={visible} setVisible={setVisible} />
     </View>
   );
 };
