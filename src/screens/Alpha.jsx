@@ -50,10 +50,19 @@ const Alpha = ({ navigation }) => {
                 >
                   Tamarapreye
                 </Text>
-                <MaterialCommunityIcons
-                  name="school"
-                  style={styles.IconStyle}
-                />
+                <Text
+                  style={{
+                    color: "#000",
+                    fontSize: 25,
+                    color: "#000",
+                    fontFamily: "SfPro",
+                    fontWeight: "bold",
+                    marginHorizontal: 2,
+                  }}
+                  numberOfLines={1}
+                >
+                  👨‍🎓
+                </Text>
                 <MaterialCommunityIcons
                   name="school"
                   style={styles.IconStyleII}
