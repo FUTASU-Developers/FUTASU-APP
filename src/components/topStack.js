@@ -15,6 +15,7 @@ import { useNavigation } from "@react-navigation/core";
 
 const TopStack = (props) => {
   const navigation = useNavigation();
+  const { width, height } = Dimensions.get("window");
   return (
     <View style={{ backgroundColor: "white" }}>
       <View
@@ -22,14 +23,14 @@ const TopStack = (props) => {
           width: "88%",
           alignSelf: "center",
           flexDirection: "row",
-          marginTop: 60,
+          marginTop: 55,
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
         <View>
           <Icon
-            size={35}
+            size={30}
             color="#4D4351"
             name="ios-chevron-back"
             onPress={() => navigation.goBack()}
@@ -39,8 +40,8 @@ const TopStack = (props) => {
         <View>
           <Text
             style={{
-              fontSize: 22,
-              fontFamily: "SfPro",
+              fontSize: scale(16),
+              fontFamily: "SfProBold",
               color: "#4D4351",
               textAlign: "center",
             }}

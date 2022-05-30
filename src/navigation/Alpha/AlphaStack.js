@@ -11,7 +11,7 @@ import store from "../../services/reduxstore/store";
 
 const Stack = createStackNavigator();
 
-const AlphaStack = ({ navigation }) => {  
+const AlphaStack = ({ navigation }) => {
   return (
     <Provider store={store}>
       <NavigationContainer>
