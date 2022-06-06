@@ -1,24 +1,67 @@
-import React from 'react'
-import { View, TextInput, SafeAreaView, Dimensions, StyleSheet, Text } from 'react-native';
-import { scale , ScaledSheet } from 'react-native-size-matters';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import React from "react";
+import { View, TextInput, Text, StatusBar } from "react-native";
+import { ScaledSheet } from "react-native-size-matters";
+import Icon from "react-native-vector-icons/Ionicons";
+import { Entypo } from "@expo/vector-icons";
+import Location from "../../components/transportation/Location";
+import { MaterialIcons } from "@expo/vector-icons";
+import Places from "../../components/transportation/Places";
 
 const TransportationLanding = ({ navigation }) => {
-    return (
-        <View style={{ flex: 1}}>
-             <View style={styles.topBar}>
-                <Icon name="ios-chevron-back" style={styles.topIcon}  onPress={ () => navigation.goBack()}  />
-                <Text style={styles.topText}>  Request Keke </Text> 
-             </View> 
+  return (
+    <View style={{ backgroundColor: "white", height: "100%" }}>
+      <View
+        style={{
+          width: "88%",
+          alignSelf: "center",
+          flexDirection: "row",
+          marginTop: 60,
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <View>
+          <Icon
+            size={28}
+            color="black"
+            name="ios-chevron-back"
+            onPress={() => navigation.goBack()}
+          />
         </View>
-    )
-}
 
-const styles = ScaledSheet.create({
-    topBar: { paddingTop: '50@s', backgroundColor: '#fff', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', paddingHorizontal: 15, elevation: 10, paddingVertical: '9@s', elevation: 10},
-    topIcon: { marginLeft: '5@s', color: '#3a3b3c', fontSize: '32@s'},
-    topText: {fontFamily: 'Proxima', fontSize: '22@s', color: '#3a3b3c', textAlign: 'center'}
-})
+        <View>
+          <Text style={{ fontSize: 23, fontFamily: "SfPro" }}>
+            Request keke
+          </Text>
+        </View>
+
+        <View>
+          <Entypo
+            name="back-in-time"
+            size={26}
+            color="black"
+            onPress={() => navigation.navigate("HistoryPage")}
+          />
+        </View>
+      </View>
+
+      <Location
+        // location="SUB"
+        icon={<MaterialIcons name="my-location" size={24} color="black" />}
+      />
+
+      <View style={{ alignItems: "center", marginTop: 40 }}>
+        <View
+          style={{ width: "88%", paddingHorizontal: 10, flexDirection: "row" }}
+        >
+          <Places />
+          <Places />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const styles = ScaledSheet.create({});
 
 export default TransportationLanding;

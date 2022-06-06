@@ -1,24 +1,67 @@
-import React from 'react'
-import { View, TextInput, SafeAreaView, Dimensions, StyleSheet, Text } from 'react-native';
-import { scale , ScaledSheet } from 'react-native-size-matters';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import React from "react";
+import { View } from "react-native";
+import { ScaledSheet } from "react-native-size-matters";
+import TopStack from "../../components/topStack";
+import { Tile } from "../../components/Tile";
+import { useNavigation } from "@react-navigation/native";
 
-const EmergencyLanding = ({ navigation }) => {
-    return (
-        <View style={{ flex: 1}}>
-             <View style={styles.topBar}>
-                <Icon name="ios-chevron-back" style={styles.topIcon}  onPress={ () => navigation.goBack()}  />
-                <Text style={styles.topText}>  Emergency List </Text> 
-             </View>
+const EmergencyLanding = ({}) => {
+  const { navigate } = useNavigation();
+  return (
+    <View style={{ backgroundColor: "white", height: "100%" }}>
+      <TopStack title="Emergency List" navigate={() => goBack()} />
+
+      <View
+        style={{
+          width: "88%",
+          alignSelf: "center",
+          marginTop: 40,
+        }}
+      >
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <Tile
+            onPress={() => navigate("EmergencyDetails", { type: "theft" })}
+            title="Theft"
+            image={require("../../assets/Images/Theft.png")}
+          />
+          <Tile
+            onPress={() => navigate("EmergencyDetails", { type: "fire" })}
+            title="Fire Accident"
+            image={require("../../assets/Images/Fire.png")}
+          />
         </View>
-    )
-}
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginTop: 20,
+          }}
+        >
+          <Tile
+            onPress={() => navigate("EmergencyDetails", { type: "harrasment" })}
+            title="Harassment"
+            image={require("../../assets/Images/Harassment.png")}
+          />
+          <Tile
+            onPress={() => navigate("EmergencyDetails", { type: null })}
+            style={{ backgroundColor: "#FFF3FD" }}
+            title="Custom Emergency"
+            image={require("../../assets/Images/Custom.png")}
+          />
+        </View>
+      </View>
+    </View>
+  );
+};
 
 const styles = ScaledSheet.create({
-    topBar: { paddingTop: '50@s', backgroundColor: '#fff', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', paddingHorizontal: 15, elevation: 10, paddingVertical: '9@s', elevation: 10},
-    topIcon: { marginLeft: '5@s', color: '#3a3b3c', fontSize: '32@s'},
-    topText: {fontFamily: 'Proxima', fontSize: '22@s', color: '#3a3b3c', textAlign: 'center'}
-})
+  body: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    backgroundColor: "#fff",
+  },
+});
 
 export default EmergencyLanding;
