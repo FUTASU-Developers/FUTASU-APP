@@ -1,9 +1,23 @@
+<<<<<<< onboarding
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import * as Font from 'expo-font';
+import AppLoading from 'expo-app-loading';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+// Stack
+import AlphaStack from './src/navigation/Alpha/AlphaStack';
+import OnboardScreen from './src/components/Onboarding/OnboardScreen';
+import OnboardingStack from './src/navigation/Onboarding/OnboardingStack';
+=======
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 // Stack
 import AlphaStack from "./src/navigation/Alpha/AlphaStack";
 import * as Notifications from "expo-notifications";
+>>>>>>> develop
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -24,6 +38,25 @@ const getFonts = () =>
   });
 
 const App = () => {
+<<<<<<< onboarding
+  const [loadFont, setLoadFont] = useState(false);
+
+  if(loadFont){
+      return (
+        <NavigationContainer>
+            {/* <AlphaStack /> */}
+            <OnboardingStack />
+        </NavigationContainer>
+       )
+  }else{
+      return (
+            <AppLoading 
+                startAsync={getFonts}
+                onFinish={ () => setLoadFont(true)}
+                onError={console.warn}
+            />
+        )
+=======
   const [appIsReady, setAppIsReady] = useState(false);
 
   useEffect(() => {
@@ -59,6 +92,7 @@ const App = () => {
 
   if (!appIsReady) {
     return null;
+>>>>>>> develop
   }
 
   return <AlphaStack />;

@@ -1,19 +1,22 @@
 
-export const OnboardData = [
+export const OnboardingData = [
     {
-        image: require(''),
+        id: '1',
         title: 'Transportation',
-        subject: 'Transportatiom subject description'
+        subject: 'Get to your classes, hostel with ease and cheaper means.. we provide you with a scalable architecture to order rides and get picked up from your location to you preferred destination.',
+        image: require('../../assets/Images/orderGif.gif')
     },
     {
-        image: require(''),
+        id: '2',
         title: 'Constitution',
-        subject: 'Constitution subject description'
+        subject: 'Do you know the constitution of this great institution well enough?..Get acquainted  with different articles of different section of our institution constitution. Information is true power',
+        image: require('../../assets/Images/titutionGif.gif')
     },
     {
-        image: require(''),
+        id: '3',
         title: 'E-Library',
-        subject: 'E-Library subject description'
+        subject: 'Our E-library holds a great variety of academic materials to help you become a first class student.. Search for your departmental courses and download them to your devices in an instant!!.',
+        image: require('../../assets/Images/libraryGif.gif')
     },
 
 ]
